@@ -1,56 +1,53 @@
-# Lab 5: Static Code Analysis — Student Attendance Tracker
+# Attendance Tracker
 
-**Your file:** `attendance_tracker.py`
-**Python:** 3.10 or newer
+**Student:** Reia S
+**SRN:** PES2UG24CS921
+**Assignment:** L5_61_attendance-tracker
 
-Follow the lab handout for the full instructions.
+## Overview
 
-## About the program
+A Python attendance tracker for recording student attendance,
+calculating attendance percentages, checking eligibility,
+identifying shortages, detecting consecutive absences, and
+exporting reports to CSV.
 
-A college attendance tracker. It marks daily attendance per student, works out attendance percentages, applies the 75% exam-eligibility rule, lists students with a shortage, exports a CSV, schedules reminders and can sync to an ERP system and back up reports.
+## Features
 
-The code works, but only just. It has quality, style and security problems of the kind Pylint, Flake8 and Bandit are built to find.
+- Add students and sections
+- Record attendance with duplicate prevention
+- Calculate attendance percentages
+- Check the minimum attendance requirement of 75%
+- Generate a shortage list
+- Detect consecutive absences
+- Find the latest attendance date
+- Export attendance data to CSV
+- Create compressed report backups
+- Prepare reminder jobs
+- Optionally sync with a configured ERP endpoint
 
-## What to do
+## Requirements
 
-1. **Install the tools:**
-   ```bash
-   python -m pip install pylint bandit flake8 requests
-   ```
-   `requests` is installed as well because the program imports it; without it the program stops with `ModuleNotFoundError`.
+- Python 3
+- requests
 
-2. **Run it first** and read the output carefully:
-   ```bash
-   python attendance_tracker.py
-   ```
-   It runs a short built-in demo and prints the results; it does not ask for input. Read every line and ask whether a sensible program would print that. Not every problem in this file is something a tool will flag, so pay attention to output that looks wrong.
+## Installation
 
+Install the required dependency:
 
+    python3 -m pip install -r requirements.txt
 
-3. **Run the analysis** and save the reports:
-   ```bash
-   python -m pylint attendance_tracker.py > pylint_report.txt
-   python -m bandit -r attendance_tracker.py > bandit_report.txt
-   python -m flake8 attendance_tracker.py > flake8_report.txt
-   ```
-   Use the `python -m` form: it works everywhere, including Windows where a bare `pylint` is often "not recognized". The tools exit with a non-zero status whenever they find issues; that is expected, not an error. In Windows PowerShell 5.1, `>` saves files as UTF-16; if a report looks garbled, use `python -m pylint attendance_tracker.py | Out-File -Encoding utf8 pylint_report.txt` instead.
+## Run
 
-4. **Document the issues** in `issues.md` using this table (at least 4 rows, high and medium severity first):
+    python3 attendance_tracker.py
 
-   | Issue | Type | Line(s) | Description | Fix Approach |
-   |-------|------|---------|-------------|--------------|
-   | ... | ... | ... | ... | ... |
+The program generates attendance.csv in the current directory.
 
-5. **Fix the code.** Fix at least 4 of the issues you documented, then rerun all three tools to confirm they are gone. Repeat until you are satisfied. The program should still do its job when you are done.
+## Attendance Status## Attendance Status##Absent
+- L: Late
+- H: Ho- H: Ho- H: Ho- H: H included attendance records are sample data.
+The reminder function prepares a job but does not send SMS.
+ERP synchronization requires a real, aERP synchronization requires a real, aERP synchronizriables.
 
-6. **Reflect.** Answer the four reflection questions from the handout in `reflection.md`.
+## License
 
-## Deliverables
-
-1. `attendance_tracker.py`: your cleaned version, with at least 4 issues fixed.
-2. `issues.md`: the completed issue table.
-3. `reflection.md`: your answers to the reflection questions.
-
-**Target:** aim for a Pylint score above 9.5 on your final file. A perfect 10.00/10 is very good.
-
-Be ready to explain the bugs you found and how you fixed them. You may be called on to present.
+For academic use.
